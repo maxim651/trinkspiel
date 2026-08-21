@@ -413,6 +413,105 @@ const questions = [
 
 ];
 
+// Zusätzliche Fragen für den erweiterten Fragenpool
+const extraQuestions = [
+    ["Geografie · Leicht", "Welcher Kontinent ist der größte?", ["Afrika", "Asien", "Europa", "Australien"], 1],
+    ["Geografie · Leicht", "Welche Farbe hat die Flagge Japans hauptsächlich?", ["Blau", "Grün", "Weiß", "Schwarz"], 2],
+    ["Geografie · Leicht", "In welchem Land liegt die Stadt Rom?", ["Italien", "Spanien", "Frankreich", "Österreich"], 0],
+    ["Geografie · Leicht", "Welches Meer liegt zwischen Europa und Afrika?", ["Nordsee", "Mittelmeer", "Ostsee", "Karibisches Meer"], 1],
+    ["Geografie · Leicht", "Wie heißt die Hauptstadt von Deutschland?", ["Hamburg", "München", "Berlin", "Köln"], 2],
+    ["Geografie · Leicht", "Welcher Fluss fließt durch Wien?", ["Rhein", "Donau", "Elbe", "Oder"], 1],
+    ["Geografie · Leicht", "Welche Insel ist die größte der Welt?", ["Island", "Grönland", "Sizilien", "Madagaskar"], 1],
+    ["Geografie · Leicht", "In welchem Land steht der Eiffelturm?", ["Belgien", "Frankreich", "Schweiz", "Italien"], 1],
+    ["Geografie · Leicht", "Wie heißt die Hauptstadt von Spanien?", ["Barcelona", "Valencia", "Madrid", "Sevilla"], 2],
+    ["Geografie · Mittel", "Welches Land grenzt an Deutschland?", ["Portugal", "Polen", "Irland", "Norwegen"], 1],
+    ["Geografie · Mittel", "Welcher Kontinent liegt am Südpol?", ["Antarktis", "Asien", "Afrika", "Europa"], 0],
+    ["Geografie · Mittel", "Wie heißt die Hauptstadt von Kanada?", ["Toronto", "Vancouver", "Ottawa", "Montreal"], 2],
+    ["Geografie · Mittel", "Welche Wüste ist die größte Trockenwüste?", ["Gobi", "Sahara", "Atacama", "Kalahari"], 1],
+    ["Geografie · Mittel", "Welcher Staat ist flächenmäßig der größte?", ["China", "Kanada", "Russland", "Brasilien"], 2],
+    ["Geografie · Mittel", "Auf welchem Kontinent liegt Brasilien?", ["Afrika", "Südamerika", "Asien", "Nordamerika"], 1],
+    ["Geschichte · Leicht", "Wer erfand der Überlieferung nach den Buchdruck mit beweglichen Lettern in Europa?", ["Johannes Gutenberg", "Galileo Galilei", "Isaac Newton", "Marco Polo"], 0],
+    ["Geschichte · Leicht", "Wie viele Jahre hat ein Jahrhundert?", ["10", "50", "100", "1.000"], 2],
+    ["Geschichte · Leicht", "Welche Stadt wurde im Altertum durch einen Vulkanausbruch verschüttet?", ["Pompeji", "London", "Berlin", "Karthago"], 0],
+    ["Geschichte · Leicht", "Wer war Kleopatra?", ["Eine ägyptische Königin", "Eine römische Dichterin", "Eine griechische Göttin", "Eine französische Kaiserin"], 0],
+    ["Geschichte · Leicht", "In welchem Land standen die Olympischen Spiele der Antike ursprünglich?", ["Griechenland", "Ägypten", "China", "Spanien"], 0],
+    ["Geschichte · Mittel", "Wann endete der Zweite Weltkrieg in Europa?", ["1943", "1945", "1947", "1950"], 1],
+    ["Geschichte · Mittel", "Wer war der erste Präsident der Vereinigten Staaten?", ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "John Adams"], 1],
+    ["Geschichte · Mittel", "Welche Stadt war das Zentrum des antiken Römischen Reiches?", ["Rom", "Athen", "Kairo", "Paris"], 0],
+    ["Geschichte · Mittel", "Wie nennt man die Epoche zwischen Antike und Neuzeit?", ["Mittelalter", "Barock", "Aufklärung", "Renaissance"], 0],
+    ["Geschichte · Schwer", "Wer schrieb die 95 Thesen?", ["Martin Luther", "Karl der Große", "Aristoteles", "Napoleon"], 0],
+    ["Geschichte · Schwer", "Welche Kultur errichtete Machu Picchu?", ["Maya", "Inka", "Römer", "Wikinger"], 1],
+    ["Wissenschaft · Leicht", "Welcher Planet ist der Sonne am nächsten?", ["Venus", "Merkur", "Mars", "Erde"], 1],
+    ["Wissenschaft · Leicht", "Wie viele natürliche Monde hat die Erde?", ["0", "1", "2", "4"], 1],
+    ["Wissenschaft · Leicht", "Was misst ein Thermometer?", ["Luftdruck", "Temperatur", "Geschwindigkeit", "Lautstärke"], 1],
+    ["Wissenschaft · Leicht", "Welche Kraft zieht Gegenstände zur Erde?", ["Reibung", "Schwerkraft", "Magnetismus", "Auftrieb"], 1],
+    ["Wissenschaft · Leicht", "Welches Organ pumpt Blut durch den Körper?", ["Lunge", "Herz", "Leber", "Magen"], 1],
+    ["Wissenschaft · Leicht", "Wie viele Zähne hat ein erwachsener Mensch normalerweise?", ["24", "28", "32", "36"], 2],
+    ["Wissenschaft · Mittel", "Was ist die kleinste Einheit eines Lebewesens?", ["Zelle", "Organ", "Gewebe", "Knochen"], 0],
+    ["Wissenschaft · Mittel", "Welches Vitamin bildet der Körper unter Sonneneinstrahlung?", ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"], 3],
+    ["Wissenschaft · Mittel", "Wie viele Planeten hat unser Sonnensystem?", ["7", "8", "9", "10"], 1],
+    ["Wissenschaft · Mittel", "Was ist H2O?", ["Wasser", "Sauerstoff", "Salz", "Wasserstoff"], 0],
+    ["Wissenschaft · Schwer", "Welche Einheit misst elektrische Stromstärke?", ["Volt", "Watt", "Ampere", "Ohm"], 2],
+    ["Wissenschaft · Schwer", "Wie nennt man die Wissenschaft von Erdbeben?", ["Seismologie", "Biologie", "Meteorologie", "Astronomie"], 0],
+    ["Natur · Leicht", "Welche Farbe haben reife Bananen meistens?", ["Blau", "Gelb", "Lila", "Schwarz"], 1],
+    ["Natur · Leicht", "Welches Tier ist ein Säugetier?", ["Adler", "Delfin", "Eidechse", "Forelle"], 1],
+    ["Natur · Leicht", "Wie nennt man die Verwandlung einer Raupe zum Schmetterling?", ["Metamorphose", "Gärung", "Erosion", "Kristallisation"], 0],
+    ["Natur · Leicht", "Welche Pflanze produziert Eicheln?", ["Buche", "Eiche", "Birke", "Tanne"], 1],
+    ["Natur · Leicht", "Welches Tier ist für seinen schwarz-weißen Streifen bekannt?", ["Zebra", "Tiger", "Leopard", "Panda"], 0],
+    ["Natur · Mittel", "Wie nennt man Tiere, die nachts aktiv sind?", ["Tagtiere", "Nachtaktive Tiere", "Wassertiere", "Weidetiere"], 1],
+    ["Natur · Mittel", "Welcher Baum trägt Kastanien?", ["Kastanie", "Ahorn", "Weide", "Pappel"], 0],
+    ["Natur · Mittel", "Was sammeln Bienen aus Blüten?", ["Nektar", "Sand", "Salz", "Harz"], 0],
+    ["Natur · Schwer", "Wie nennt man die Lehre von den Pilzen?", ["Mykologie", "Geologie", "Ökologie", "Zoologie"], 0],
+    ["Sport · Leicht", "Wie viele Ringe hat das olympische Symbol?", ["3", "4", "5", "6"], 2],
+    ["Sport · Leicht", "Welche Sportart wird auf Eis gespielt?", ["Eishockey", "Volleyball", "Cricket", "Fechten"], 0],
+    ["Sport · Leicht", "Wie nennt man einen Treffer im Fußball?", ["Touchdown", "Tor", "Punktstoß", "Satz"], 1],
+    ["Sport · Leicht", "Welche Farbe trägt der Führende bei der Tour de France?", ["Gelb", "Grün", "Rot", "Weiß"], 0],
+    ["Sport · Mittel", "Wie viele Felder hat ein Schachbrett?", ["32", "48", "64", "81"], 2],
+    ["Sport · Mittel", "Wie heißt der längste Laufwettbewerb der Leichtathletik?", ["Sprint", "Marathon", "Hürdenlauf", "Staffel"], 1],
+    ["Sport · Mittel", "In welcher Sportart verwendet man einen Puck?", ["Eishockey", "Tennis", "Handball", "Baseball"], 0],
+    ["Sport · Schwer", "Wie viele Punkte zählt ein Touchdown im American Football normalerweise?", ["3", "6", "7", "10"], 1],
+    ["Musik · Leicht", "Wie viele Tasten hat ein klassisches Klavier normalerweise?", ["66", "88", "96", "100"], 1],
+    ["Musik · Leicht", "Welches Instrument hat typischerweise sechs Saiten?", ["Flöte", "Gitarre", "Trompete", "Schlagzeug"], 1],
+    ["Musik · Leicht", "Wie nennt man ein Musikstück für zwei Personen?", ["Duett", "Solo", "Quartett", "Chor"], 0],
+    ["Musik · Mittel", "Wer komponierte die 9. Sinfonie?", ["Beethoven", "Mozart", "Bach", "Chopin"], 0],
+    ["Musik · Mittel", "Wie heißt das Zeichen für eine kurze Pause in der Musik?", ["Pausenzeichen", "Doppelpunkt", "Klammer", "Akzent"], 0],
+    ["Kunst · Leicht", "Welche Farben entstehen aus Rot und Weiß?", ["Rosa", "Grün", "Braun", "Türkis"], 0],
+    ["Kunst · Leicht", "Womit malt man auf einer Leinwand?", ["Pinsel", "Lineal", "Kompass", "Schraubenzieher"], 0],
+    ["Kunst · Mittel", "Wer malte das Bild 'Die Sternennacht'?", ["Vincent van Gogh", "Edvard Munch", "Rembrandt", "Michelangelo"], 0],
+    ["Sprache · Leicht", "Was ist das Gegenteil von 'kalt'?", ["nass", "warm", "hell", "schnell"], 1],
+    ["Sprache · Leicht", "Wie viele Vokale hat das deutsche Alphabet?", ["3", "5", "7", "9"], 1],
+    ["Sprache · Mittel", "Was ist ein anderes Wort für 'beginnen'?", ["enden", "starten", "verlieren", "warten"], 1],
+    ["Technik · Leicht", "Womit kann man im Internet Webseiten öffnen?", ["Browser", "Toaster", "Scanner", "Mikroskop"], 0],
+    ["Technik · Leicht", "Was speichert ein Computer dauerhaft?", ["Daten", "Licht", "Wind", "Wärme"], 0],
+    ["Technik · Mittel", "Wofür steht WLAN?", ["Wireless Local Area Network", "Wide Language Access Node", "Web Link And Name", "World Line Area Net"], 0],
+    ["Allgemeinwissen · Leicht", "Wie viele Stunden hat ein Tag?", ["12", "24", "36", "48"], 1],
+    ["Allgemeinwissen · Leicht", "Welche Farbe entsteht aus Rot und Gelb?", ["Grün", "Orange", "Violett", "Blau"], 1],
+    ["Allgemeinwissen · Leicht", "Wie viele Seiten hat ein Würfel?", ["4", "6", "8", "12"], 1],
+    ["Allgemeinwissen · Mittel", "Wie nennt man ein Vieleck mit drei Seiten?", ["Viereck", "Dreieck", "Fünfeck", "Kreis"], 1],
+    ["Allgemeinwissen · Mittel", "Welche Sprache wird in Brasilien hauptsächlich gesprochen?", ["Spanisch", "Portugiesisch", "Französisch", "Englisch"], 1],
+    ["Allgemeinwissen · Schwer", "Wie viele Nullen hat eine Million?", ["3", "5", "6", "9"], 2]
+];
+
+questions.push(...extraQuestions.map(([category, question, answers, correct]) => ({
+    category,
+    question,
+    answers,
+    correct
+})));
+
+for (let number = 1; number <= 24; number++) {
+    const first = number + 4;
+    const second = number + 2;
+    const result = first + second;
+
+    questions.push({
+        category: "Mathematik · Leicht",
+        question: `Was ist ${first} + ${second}?`,
+        answers: [String(result - 2), String(result), String(result + 2), String(result + 4)],
+        correct: 1
+    });
+}
+
 
 // ================================
 // GETRÄNKE
