@@ -2,7 +2,10 @@
 // QUIZMASTER
 // ================================
 
-// Fragen
+// ================================
+// FRAGEN
+// ================================
+
 const questions = [
 
     // 🟢 LEICHT
@@ -62,7 +65,6 @@ const questions = [
         answers: ["10", "11", "12", "13"],
         correct: 2
     },
-
 
     // 🟡 MITTEL
 
@@ -155,7 +157,6 @@ const questions = [
         ],
         correct: 1
     },
-
 
     // 🔴 SCHWER
 
@@ -288,12 +289,11 @@ const questions = [
 
 
 // ================================
-// Kurzer
+// GETRÄNKE
 // ================================
 
 const drinks = [
-    "Kurzer 🥤",
-    
+    "Kurzer 🥤"
 ];
 
 
@@ -307,362 +307,325 @@ let answered = false;
 
 
 // ================================
-// HTML ELEMENTE
+// WARTEN BIS HTML GELADEN IST
 // ================================
 
-const questionElement =
-    document.getElementById("question");
+document.addEventListener("DOMContentLoaded", () => {
 
-const answersElement =
-    document.getElementById("answers");
+    // ================================
+    // HTML ELEMENTE
+    // ================================
 
-const categoryElement =
-    document.getElementById("category");
+    const questionElement =
+        document.getElementById("question");
 
-const progressText =
-    document.getElementById("progressText");
+    const answersElement =
+        document.getElementById("answers");
 
-const progressBar =
-    document.getElementById("progressBar");
+    const categoryElement =
+        document.getElementById("category");
 
-const nextButton =
-    document.getElementById("nextBtn");
+    const progressText =
+        document.getElementById("progressText");
 
-const quizScreen =
-    document.getElementById("quizScreen");
+    const progressBar =
+        document.getElementById("progressBar");
 
-const resultScreen =
-    document.getElementById("resultScreen");
+    const nextButton =
+        document.getElementById("nextBtn");
 
-const scoreElement =
-    document.getElementById("score");
+    const quizScreen =
+        document.getElementById("quizScreen");
 
-const percentageElement =
-    document.getElementById("percentage");
+    const resultScreen =
+        document.getElementById("resultScreen");
 
-const resultMessage =
-    document.getElementById("resultMessage");
+    const scoreElement =
+        document.getElementById("score");
 
-const restartButton =
-    document.getElementById("restartBtn");
+    const percentageElement =
+        document.getElementById("percentage");
 
+    const resultMessage =
+        document.getElementById("resultMessage");
 
-// Getränke-Overlay
+    const restartButton =
+        document.getElementById("restartBtn");
 
-const drinkOverlay =
-    document.getElementById("drinkOverlay");
+    const drinkOverlay =
+        document.getElementById("drinkOverlay");
 
-const drinkName =
-    document.getElementById("drinkName");
+    const drinkName =
+        document.getElementById("drinkName");
 
-const drinkContinue =
-    document.getElementById("drinkContinue");
-
-
-// ================================
-// FRAGEN ZUFÄLLIG MISCHEN
-// ================================
-
-function shuffleQuestions() {
-    for (let i = questions.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-
-        [questions[i], questions[j]] =
-            [questions[j], questions[i]];
-    }
-}
+    const drinkContinue =
+        document.getElementById("drinkContinue");
 
 
-// ================================
-// FRAGE LADEN
-// ================================
+    // ================================
+    // FRAGEN MISCHEN
+    // ================================
 
-function loadQuestion() {
+    function shuffleQuestions() {
 
-    answered = false;
+        for (let i = questions.length - 1; i > 0; i--) {
 
-    nextButton.disabled = true;
+            const j =
+                Math.floor(Math.random() * (i + 1));
 
-    const question = questions[currentQuestion];
-
-
-    // Kategorie
-
-    categoryElement.textContent =
-        question.category;
-
-
-    // Frage
-
-    questionElement.textContent =
-        question.question;
-
-
-    // Fortschritt
-
-    progressText.textContent =
-        `Frage ${currentQuestion + 1} / ${questions.length}`;
-
-
-    progressBar.style.width =
-        `${((currentQuestion + 1) / questions.length) * 100}%`;
-
-
-    // Alte Antworten entfernen
-
-    answersElement.innerHTML = "";
-
-
-    // Neue Antworten erstellen
-
-    question.answers.forEach(
-        (answer, index) => {
-
-            const button =
-                document.createElement("button");
-
-            button.classList.add("answer");
-
-            button.textContent =
-                `${String.fromCharCode(65 + index)}. ${answer}`;
-
-
-            button.addEventListener(
-                "click",
-                () => selectAnswer(index, button)
-            );
-
-
-            answersElement.appendChild(button);
+            [questions[i], questions[j]] =
+                [questions[j], questions[i]];
         }
-    );
-}
-
-
-// ================================
-// ANTWORT AUSWÄHLEN
-// ================================
-
-function selectAnswer(
-    selectedIndex,
-    selectedButton
-) {
-
-    // Wenn bereits beantwortet
-    if (answered) {
-        return;
     }
 
 
-    answered = true;
+    // ================================
+    // FRAGE LADEN
+    // ================================
+
+    function loadQuestion() {
+
+        answered = false;
+
+        nextButton.disabled = true;
+
+        const question =
+            questions[currentQuestion];
 
 
-    const question =
-        questions[currentQuestion];
+        categoryElement.textContent =
+            question.category;
+
+        questionElement.textContent =
+            question.question;
+
+        progressText.textContent =
+            `Frage ${currentQuestion + 1} / ${questions.length}`;
+
+        progressBar.style.width =
+            `${((currentQuestion + 1) / questions.length) * 100}%`;
 
 
-    const buttons =
-        document.querySelectorAll(".answer");
+        answersElement.innerHTML = "";
 
 
-    // Alle Buttons deaktivieren
+        question.answers.forEach(
+            (answer, index) => {
 
-    buttons.forEach(
-        button => {
-            button.disabled = true;
+                const button =
+                    document.createElement("button");
+
+                button.classList.add("answer");
+
+                button.textContent =
+                    `${String.fromCharCode(65 + index)}. ${answer}`;
+
+                button.addEventListener(
+                    "click",
+                    () => selectAnswer(index, button)
+                );
+
+                answersElement.appendChild(button);
+            }
+        );
+    }
+
+
+    // ================================
+    // ANTWORT AUSWÄHLEN
+    // ================================
+
+    function selectAnswer(
+        selectedIndex,
+        selectedButton
+    ) {
+
+        if (answered) {
+            return;
         }
-    );
+
+        answered = true;
+
+        const question =
+            questions[currentQuestion];
+
+        const buttons =
+            document.querySelectorAll(".answer");
 
 
-    // RICHTIG
-
-    if (selectedIndex === question.correct) {
-
-        selectedButton.classList.add("correct");
-
-        score++;
-
-        nextButton.disabled = false;
-
-    }
-
-    // FALSCH
-
-    else {
-
-        selectedButton.classList.add("wrong");
-
-
-        // Richtige Antwort anzeigen
-
-        buttons[
-            question.correct
-        ].classList.add("correct");
-
-
-        // Zufälligen alkoholfreien Kurzen anzeigen
-
-        showRandomDrink();
-    }
-}
-
-
-// ================================
-// ZUFÄLLIGES GETRÄNK
-// ================================
-
-function showRandomDrink() {
-
-    const randomIndex =
-        Math.floor(
-            Math.random() * drinks.length
+        buttons.forEach(
+            button => {
+                button.disabled = true;
+            }
         );
 
 
-    const randomDrink =
-        drinks[randomIndex];
+        // RICHTIG
 
+        if (selectedIndex === question.correct) {
 
-    drinkName.textContent =
-        randomDrink;
+            selectedButton.classList.add("correct");
 
+            score++;
 
-    drinkOverlay.classList.remove("hidden");
-}
+            nextButton.disabled = false;
 
-
-// ================================
-// GETRÄNKE-MELDUNG SCHLIESSEN
-// ================================
-
-drinkContinue.addEventListener(
-    "click",
-    () => {
-
-        drinkOverlay.classList.add("hidden");
-
-        nextButton.disabled = false;
-    }
-);
-
-
-// ================================
-// NÄCHSTE FRAGE
-// ================================
-
-nextButton.addEventListener(
-    "click",
-    () => {
-
-        currentQuestion++;
-
-
-        // Noch Fragen vorhanden
-
-        if (
-            currentQuestion <
-            questions.length
-        ) {
-
-            loadQuestion();
         }
 
-
-        // Quiz beendet
+        // FALSCH
 
         else {
 
-            showResult();
+            selectedButton.classList.add("wrong");
+
+            buttons[
+                question.correct
+            ].classList.add("correct");
+
+            showRandomDrink();
         }
     }
-);
 
 
-// ================================
-// ERGEBNIS
-// ================================
+    // ================================
+    // ZUFÄLLIGES GETRÄNK
+    // ================================
 
-function showResult() {
+    function showRandomDrink() {
 
-    quizScreen.classList.add("hidden");
+        const randomIndex =
+            Math.floor(
+                Math.random() * drinks.length
+            );
 
-    resultScreen.classList.remove("hidden");
+        drinkName.textContent =
+            drinks[randomIndex];
 
-
-    const percentage =
-        Math.round(
-            (score / questions.length) * 100
-        );
-
-
-    scoreElement.textContent =
-        score;
-
-
-    percentageElement.textContent =
-        `${percentage}%`;
-
-
-    // Nachricht
-
-    if (percentage === 100) {
-
-        resultMessage.textContent =
-            "Perfekt! Alle Fragen richtig! 🔥";
+        drinkOverlay.classList.remove("hidden");
     }
 
-    else if (percentage >= 80) {
 
-        resultMessage.textContent =
-            "Sehr stark! Du kennst dich richtig gut aus! 🎉";
+    // ================================
+    // GETRÄNK SCHLIESSEN
+    // ================================
+
+    drinkContinue.addEventListener(
+        "click",
+        () => {
+
+            drinkOverlay.classList.add("hidden");
+
+            nextButton.disabled = false;
+        }
+    );
+
+
+    // ================================
+    // NÄCHSTE FRAGE
+    // ================================
+
+    nextButton.addEventListener(
+        "click",
+        () => {
+
+            currentQuestion++;
+
+            if (
+                currentQuestion <
+                questions.length
+            ) {
+
+                loadQuestion();
+
+            } else {
+
+                showResult();
+            }
+        }
+    );
+
+
+    // ================================
+    // ERGEBNIS
+    // ================================
+
+    function showResult() {
+
+        quizScreen.classList.add("hidden");
+
+        resultScreen.classList.remove("hidden");
+
+
+        const percentage =
+            Math.round(
+                (score / questions.length) * 100
+            );
+
+
+        scoreElement.textContent =
+            score;
+
+        percentageElement.textContent =
+            `${percentage}%`;
+
+
+        if (percentage === 100) {
+
+            resultMessage.textContent =
+                "Perfekt! Alle Fragen richtig! 🔥";
+
+        } else if (percentage >= 80) {
+
+            resultMessage.textContent =
+                "Sehr stark! Du kennst dich richtig gut aus! 🎉";
+
+        } else if (percentage >= 60) {
+
+            resultMessage.textContent =
+                "Gut gemacht! Das war schon ziemlich stark. 💪";
+
+        } else if (percentage >= 40) {
+
+            resultMessage.textContent =
+                "Nicht schlecht! Versuch es noch einmal. 🙂";
+
+        } else {
+
+            resultMessage.textContent =
+                "Da geht noch mehr! Versuch es direkt noch einmal. 🚀";
+        }
     }
 
-    else if (percentage >= 60) {
 
-        resultMessage.textContent =
-            "Gut gemacht! Das war schon ziemlich stark. 💪";
-    }
+    // ================================
+    // NEUSTART
+    // ================================
 
-    else if (percentage >= 40) {
+    restartButton.addEventListener(
+        "click",
+        () => {
 
-        resultMessage.textContent =
-            "Nicht schlecht! Versuch es noch einmal. 🙂";
-    }
+            currentQuestion = 0;
 
-    else {
+            score = 0;
 
-        resultMessage.textContent =
-            "Da geht noch mehr! Versuch es direkt noch einmal. 🚀";
-    }
-}
+            shuffleQuestions();
 
+            resultScreen.classList.add("hidden");
 
-// ================================
-// NEUSTART
-// ================================
+            quizScreen.classList.remove("hidden");
 
-restartButton.addEventListener(
-    "click",
-    () => {
-
-        currentQuestion = 0;
-
-        score = 0;
-
-        shuffleQuestions();
-
-        resultScreen.classList.add("hidden");
-
-        quizScreen.classList.remove("hidden");
-
-        loadQuestion();
-    }
-);
+            loadQuestion();
+        }
+    );
 
 
-// ================================
-// QUIZ STARTEN
-// ================================
+    // ================================
+    // QUIZ STARTEN
+    // ================================
 
-shuffleQuestions();
-loadQuestion();
+    shuffleQuestions();
+
+    loadQuestion();
+
+});
