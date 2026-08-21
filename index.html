@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#17172f">
+    <title>QuizMaster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header>
+            <div class="logo">Quiz<span>Master</span></div>
+            <div id="progressText">Frage 1 / 10</div>
+        </header>
+
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div>
+
+        <!-- QUIZ -->
+        <main id="quizScreen" class="card">
+
+            <div id="category" class="category">
+                Allgemeinwissen
+            </div>
+
+            <h1 id="question">
+                Frage wird geladen...
+            </h1>
+
+            <div id="answers" class="answers"></div>
+
+            <button id="nextBtn" class="next-btn" disabled>
+                Nächste Frage →
+            </button>
+
+        </main>
+
+        <!-- GETRÄNKE-MELDUNG -->
+        <div id="drinkOverlay" class="overlay hidden">
+
+            <div class="drink-box">
+
+                <div class="drink-icon">🥤</div>
+
+                <h2>Falsch! 😄</h2>
+
+                <p>Dein kurzer ist:</p>
+
+                <div id="drinkName" class="drink-name">
+                    Such dir was Alkoholisches aus 🍹
+                </div>
+
+                <p class="small-text">
+                    Trinke einen Kurzen 🥤
+                </p>
+
+                <button id="drinkContinue" class="next-btn">
+                    Weiter
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- ERGEBNIS -->
+        <main id="resultScreen" class="card result hidden">
+
+            <div class="trophy">🏆</div>
+
+            <h1>Quiz beendet!</h1>
+
+            <p id="resultMessage"></p>
+
+            <div class="score-circle">
+                <span id="score">0</span>
+                <small>/ 10</small>
+            </div>
+
+            <p id="percentage">0%</p>
+
+            <button id="restartBtn" class="next-btn">
+                Nochmal spielen
+            </button>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
