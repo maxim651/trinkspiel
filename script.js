@@ -283,6 +283,132 @@ const questions = [
         question: "Was ist die Quadratwurzel von 144?",
         answers: ["10", "11", "12", "14"],
         correct: 2
+    },
+
+    {
+        category: "Geografie · Leicht",
+        question: "Wie heißt der längste Fluss der Welt?",
+        answers: ["Amazonas", "Nil", "Rhein", "Donau"],
+        correct: 1
+    },
+
+    {
+        category: "Natur · Leicht",
+        question: "Wie viele Kontinente gibt es auf der Erde?",
+        answers: ["5", "6", "7", "8"],
+        correct: 2
+    },
+
+    {
+        category: "Mathematik · Leicht",
+        question: "Was ist 9 × 9?",
+        answers: ["72", "81", "89", "99"],
+        correct: 1
+    },
+
+    {
+        category: "Geschichte · Mittel",
+        question: "Wer malte die Mona Lisa?",
+        answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+        correct: 2
+    },
+
+    {
+        category: "Wissenschaft · Mittel",
+        question: "Wie nennt man den Mittelpunkt eines Atoms?",
+        answers: ["Elektron", "Molekül", "Atomkern", "Proton"],
+        correct: 2
+    },
+
+    {
+        category: "Sport · Mittel",
+        question: "In welcher Sportart gibt es einen Aufschlag?",
+        answers: ["Tennis", "Boxen", "Leichtathletik", "Rugby"],
+        correct: 0
+    },
+
+    {
+        category: "Film · Mittel",
+        question: "Wie heißt die Stadt, in der Batman lebt?",
+        answers: ["Metropolis", "Gotham City", "Hill Valley", "Springfield"],
+        correct: 1
+    },
+
+    {
+        category: "Technik · Schwer",
+        question: "Wofür steht die Abkürzung CPU?",
+        answers: ["Central Processing Unit", "Computer Personal User", "Core Program Utility", "Central Power Unit"],
+        correct: 0
+    },
+
+    {
+        category: "Natur · Schwer",
+        question: "Wie nennt man Tiere, die sowohl Pflanzen als auch Fleisch fressen?",
+        answers: ["Vegetarier", "Karnivoren", "Omnivoren", "Insektenfresser"],
+        correct: 2
+    },
+
+    {
+        category: "Geografie · Leicht",
+        question: "Welches Land ist für seine Pyramiden von Gizeh bekannt?",
+        answers: ["Ägypten", "Mexiko", "Indien", "Peru"],
+        correct: 0
+    },
+
+    {
+        category: "Mathematik · Leicht",
+        question: "Wie viel ist 100 geteilt durch 4?",
+        answers: ["20", "25", "30", "40"],
+        correct: 1
+    },
+
+    {
+        category: "Natur · Leicht",
+        question: "Welcher Stoff ist der Hauptbestandteil der Luft?",
+        answers: ["Sauerstoff", "Stickstoff", "Wasserstoff", "Kohlendioxid"],
+        correct: 1
+    },
+
+    {
+        category: "Geschichte · Mittel",
+        question: "Wie hieß der erste deutsche Bundeskanzler?",
+        answers: ["Willy Brandt", "Helmut Kohl", "Konrad Adenauer", "Angela Merkel"],
+        correct: 2
+    },
+
+    {
+        category: "Geografie · Mittel",
+        question: "Durch welche Stadt fließt die Themse?",
+        answers: ["Paris", "London", "Dublin", "Brüssel"],
+        correct: 1
+    },
+
+    {
+        category: "Sport · Mittel",
+        question: "Wie lange dauert ein reguläres Fußballspiel ohne Verlängerung?",
+        answers: ["60 Minuten", "75 Minuten", "90 Minuten", "120 Minuten"],
+        correct: 2
+    },
+
+    {
+        category: "Wissenschaft · Schwer",
+        question: "Wie lautet die chemische Formel von Wasser?",
+        answers: ["CO2", "O2", "H2O", "NaCl"],
+        correct: 2
+    },
+
+    {
+        category: "Film · Schwer",
+        question: "Wie heißt der Roboter aus dem Film 'Star Wars'?",
+        answers: ["Gandalf", "R2-D2", "Spock", "WALL-E"],
+        correct: 1
+    },
+
+    {
+        category: "Kunst · Schwer",
+        question: "Wie viele Saiten hat eine klassische Gitarre?",
+        answers: ["4", "5", "6", "8"],
+        correct: 2
     }
 
 ];
