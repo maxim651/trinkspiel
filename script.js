@@ -370,6 +370,20 @@ function shuffleQuestions() {
         [questions[i], questions[j]] =
             [questions[j], questions[i]];
     }
+}
+
+
+// ================================
+// FRAGE LADEN
+// ================================
+
+function loadQuestion() {
+
+    answered = false;
+
+    nextButton.disabled = true;
+
+    const question = questions[currentQuestion];
 
 
     // Kategorie
